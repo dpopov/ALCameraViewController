@@ -9,6 +9,20 @@
 import UIKit
 import Photos
 
+class LightNav: UINavigationController {
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .slide
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return navigationController?.isNavigationBarHidden ?? false
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+}
+
 internal let ImageCellIdentifier = "ImageCell"
 
 internal let defaultItemSpacing: CGFloat = 1
@@ -66,7 +80,7 @@ public class PhotoLibraryViewController: UIViewController {
     }
     
     public func present(_ inViewController: UIViewController, animated: Bool) {
-        let navigationController = UINavigationController(rootViewController: self)
+        let navigationController = LightNav(rootViewController: self)
         navigationController.navigationBar.barTintColor = UIColor.black
         navigationController.navigationBar.barStyle = UIBarStyle.black
         inViewController.present(navigationController, animated: animated, completion: nil)

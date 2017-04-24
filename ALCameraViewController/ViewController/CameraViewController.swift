@@ -16,7 +16,7 @@ public extension CameraViewController {
     /// Provides an image picker wrapped inside a UINavigationController instance
     public class func imagePickerViewController(croppingEnabled: Bool, completion: @escaping CameraViewCompletion) -> UINavigationController {
         let imagePicker = PhotoLibraryViewController()
-        let navigationController = UINavigationController(rootViewController: imagePicker)
+        let navigationController = LightNav(rootViewController: imagePicker)
         
         navigationController.navigationBar.barTintColor = UIColor.black
         navigationController.navigationBar.barStyle = UIBarStyle.black
